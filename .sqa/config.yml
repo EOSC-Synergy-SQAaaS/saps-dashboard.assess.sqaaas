@@ -1,0 +1,64 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: release/1.7.0
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+    github.com/darce-i3m/saps-dashboard:
+      branch: develop
+      repo: https://github.com/darce-i3m/saps-dashboard
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      github.com/darce-i3m/saps-dashboard git:
+        commands:
+        - /usr/bin/env sh .sqa/script.blurry-cerise-hummingbird.sh
+        container: qc.acc_breezy-cinnamon-donkey
+  QC.Doc:
+    repos:
+      github.com/darce-i3m/saps-dashboard find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.jumpy-emerald-bison.sh
+        container: qc.doc_gloppy-fuchsia-capybara
+      github.com/darce-i3m/saps-dashboard git:
+        commands:
+        - /usr/bin/env sh .sqa/script.grumpy-cerise-quokka.sh
+        container: qc.doc_trippy-saffron-orangutan
+      github.com/darce-i3m/saps-dashboard markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.ready-flax-terrier.sh
+        container: qc.doc_droopy-ochre-hedgehog
+  QC.FAIR:
+    repos:
+      github.com/darce-i3m/saps-dashboard F-UJI:
+        commands:
+        - /usr/bin/env sh .sqa/script.stinky-viridian-rhinoceros.sh
+        container: qc.fair_chewy-taupe-octopus
+  QC.Lic:
+    repos:
+      github.com/darce-i3m/saps-dashboard licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.gummy-aqua-hyrax.sh
+        container: qc.lic_sleazy-crimson-woodlouse
+  QC.Sec:
+    repos:
+      github.com/darce-i3m/saps-dashboard bandit:
+        commands:
+        - /usr/bin/env sh .sqa/script.flimsy-buff-okapi.sh
+        container: qc.sec_cheeky-russet-warthog
+  QC.Sty:
+    repos:
+      github.com/darce-i3m/saps-dashboard flake8:
+        commands:
+        - /usr/bin/env sh .sqa/script.boozy-firebrick-dane.sh
+        container: qc.sty_lovely-zucchini-dragon
+  QC.Ver:
+    repos:
+      github.com/darce-i3m/saps-dashboard get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.squirrely-ruby-grouse.sh
+        container: qc.ver_squeaky-buff-bordeaux
+timeout: 1800
