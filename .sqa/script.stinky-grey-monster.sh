@@ -1,4 +1,4 @@
 (
-cd github.com/darce-i3m/saps-dashboard &&
+cd github.com/EOSC-synergy/saps-dashboard &&
     bandit -f json --quiet  --confidence-level high --severity-level high --recursive .
 )

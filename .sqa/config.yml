@@ -1,64 +1,58 @@
 config:
   credentials: []
   project_repos:
+    github.com/EOSC-synergy/saps-dashboard:
+      branch: master
+      repo: https://github.com/EOSC-synergy/saps-dashboard
     github.com/EOSC-synergy/sqaaas-tooling:
-      branch: release/1.7.0
+      branch: 1.7.0_no_kubectl
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
-    github.com/darce-i3m/saps-dashboard:
-      branch: develop
-      repo: https://github.com/darce-i3m/saps-dashboard
 environment:
   JPL_DOCKERFORCEBUILD: enabled
   JPL_KEEPGOING: enabled
 sqa_criteria:
   QC.Acc:
     repos:
-      github.com/darce-i3m/saps-dashboard git:
+      github.com/EOSC-synergy/saps-dashboard git:
         commands:
-        - /usr/bin/env sh .sqa/script.blurry-cerise-hummingbird.sh
-        container: qc.acc_breezy-cinnamon-donkey
+        - /usr/bin/env sh .sqa/script.cheeky-denim-squid.sh
+        container: qc.acc_muggy-gamboge-mammoth
   QC.Doc:
     repos:
-      github.com/darce-i3m/saps-dashboard find_doc_files.py:
+      github.com/EOSC-synergy/saps-dashboard find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.jumpy-emerald-bison.sh
-        container: qc.doc_gloppy-fuchsia-capybara
-      github.com/darce-i3m/saps-dashboard git:
+        - /usr/bin/env sh .sqa/script.grumpy-cobalt-mau.sh
+        container: qc.doc_craggy-charcoal-wrasse
+      github.com/EOSC-synergy/saps-dashboard git:
         commands:
-        - /usr/bin/env sh .sqa/script.grumpy-cerise-quokka.sh
-        container: qc.doc_trippy-saffron-orangutan
-      github.com/darce-i3m/saps-dashboard markdownlint:
+        - /usr/bin/env sh .sqa/script.scummy-charcoal-iguana.sh
+        container: qc.doc_snazzy-myrtle-tzu
+      github.com/EOSC-synergy/saps-dashboard markdownlint:
         commands:
-        - /usr/bin/env sh .sqa/script.ready-flax-terrier.sh
-        container: qc.doc_droopy-ochre-hedgehog
-  QC.FAIR:
-    repos:
-      github.com/darce-i3m/saps-dashboard F-UJI:
-        commands:
-        - /usr/bin/env sh .sqa/script.stinky-viridian-rhinoceros.sh
-        container: qc.fair_chewy-taupe-octopus
+        - /usr/bin/env sh .sqa/script.baggy-viridian-flounder.sh
+        container: qc.doc_zippy-tan-serval
   QC.Lic:
     repos:
-      github.com/darce-i3m/saps-dashboard licensee:
+      github.com/EOSC-synergy/saps-dashboard licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.gummy-aqua-hyrax.sh
-        container: qc.lic_sleazy-crimson-woodlouse
+        - /usr/bin/env sh .sqa/script.muzzy-saffron-fossa.sh
+        container: qc.lic_skimpy-yellow-cat
   QC.Sec:
     repos:
-      github.com/darce-i3m/saps-dashboard bandit:
+      github.com/EOSC-synergy/saps-dashboard bandit:
         commands:
-        - /usr/bin/env sh .sqa/script.flimsy-buff-okapi.sh
-        container: qc.sec_cheeky-russet-warthog
+        - /usr/bin/env sh .sqa/script.stinky-grey-monster.sh
+        container: qc.sec_beady-cinnabar-ragdoll
   QC.Sty:
     repos:
-      github.com/darce-i3m/saps-dashboard flake8:
+      github.com/EOSC-synergy/saps-dashboard flake8:
         commands:
-        - /usr/bin/env sh .sqa/script.boozy-firebrick-dane.sh
-        container: qc.sty_lovely-zucchini-dragon
+        - /usr/bin/env sh .sqa/script.hazy-myrtle-scorpion.sh
+        container: qc.sty_beady-sangria-shark
   QC.Ver:
     repos:
-      github.com/darce-i3m/saps-dashboard get_git_tags.py:
+      github.com/EOSC-synergy/saps-dashboard get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.squirrely-ruby-grouse.sh
-        container: qc.ver_squeaky-buff-bordeaux
+        - /usr/bin/env sh .sqa/script.zippy-eggplant-bison.sh
+        container: qc.ver_thirsty-fuchsia-mayfly
 timeout: 1800
